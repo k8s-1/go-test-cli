@@ -12,7 +12,7 @@ func Test_ExecuteCommand(t *testing.T) {
 
 	cmd.SetOut(b)
 	input := "jayquellin"
-	cmd.SetArgs([]string{"serve", "name", input})
+	cmd.SetArgs([]string{"serve", "name=jack"})
 	cmd.Execute()
 
 	out, err := io.ReadAll(b)
@@ -21,6 +21,6 @@ func Test_ExecuteCommand(t *testing.T) {
 	}
 
 	if string(out) != input {
-		t.Fatalf("expected \"%s\" got \"%s\"", "hi-via-args", string(out))
+		t.Fatalf("expected \"%s\" got \"%s\"", input, string(out))
 	}
 }
