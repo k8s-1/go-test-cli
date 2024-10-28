@@ -1,12 +1,10 @@
 /*
 Copyright © 2024 NAME HERE <EMAIL ADDRESS>
-
 */
 package cmd
 
 import (
-	"fmt"
-
+	"errors"
 	"github.com/spf13/cobra"
 )
 
@@ -19,13 +17,13 @@ var serveCmd = &cobra.Command{
 e.g. 
 go-test-cli serve name=example`,
 	RunE: func(cmd *cobra.Command, args []string) error {
-    fmt.Print(cmd.OutOrStdout())
-    return nil
+		err := "Service name = " + serveArgs.name
+		return errors.New(err)
 	},
 }
 
 type serveFlags struct {
-  name string
+	name string
 }
 
 var serveArgs = serveFlags{}
@@ -33,5 +31,5 @@ var serveArgs = serveFlags{}
 func init() {
 	rootCmd.AddCommand(serveCmd)
 
-  serveCmd.Flags().StringVarP(&serveArgs.name, "name", "n", "", "name of the service")
+	serveCmd.Flags().StringVarP(&serveArgs.name, "name", "n", "", "name of the service")
 }
