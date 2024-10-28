@@ -14,8 +14,7 @@ import (
 var serveCmd = &cobra.Command{
 	Use:   "serve",
 	Short: "Serve a service",
-	Long: `
-Serving a service...
+	Long: `  # Serve a service
 
 e.g. 
 go-test-cli serve name=example`,
