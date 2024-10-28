@@ -18,6 +18,7 @@ func Test_ExecuteCommand(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
+
 	if string(out) != "hi-via-args" {
 		t.Fatalf("expected \"%s\" got \"%s\"", "hi-via-args", string(out))
 	}
