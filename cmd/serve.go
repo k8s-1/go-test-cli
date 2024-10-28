@@ -18,8 +18,9 @@ var serveCmd = &cobra.Command{
 
 e.g. 
 go-test-cli serve name=example`,
-	Run: func(cmd *cobra.Command, args []string) {
-    fmt.Printf("%s", serveArgs.name)
+	RunE: func(cmd *cobra.Command, args []string) error {
+    fmt.Fprintln(cmd.OutOrStdout())
+    return nil
 	},
 }
 
