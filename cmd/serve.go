@@ -19,7 +19,7 @@ var serveCmd = &cobra.Command{
 e.g. 
 go-test-cli serve name=example`,
 	RunE: func(cmd *cobra.Command, args []string) error {
-    fmt.Fprintln(cmd.OutOrStdout())
+    fmt.Print(cmd.OutOrStdout())
     return nil
 	},
 }
