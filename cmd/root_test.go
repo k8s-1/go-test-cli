@@ -1,9 +1,9 @@
 package cmd
 
 import (
+	"bytes"
+	"io"
 	"testing"
-  "bytes"
-  "io"
 )
 
 func Test_ExecuteCommand(t *testing.T) {
@@ -11,7 +11,8 @@ func Test_ExecuteCommand(t *testing.T) {
 	b := bytes.NewBufferString("")
 
 	cmd.SetOut(b)
-	cmd.SetArgs([]string{"serve", "name", "jayquellin"})
+	input := "jayquellin"
+	cmd.SetArgs([]string{"serve", "name", in})
 	cmd.Execute()
 
 	out, err := io.ReadAll(b)
@@ -19,7 +20,7 @@ func Test_ExecuteCommand(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	if string(out) != "hi-via-args" {
+	if string(out) != input {
 		t.Fatalf("expected \"%s\" got \"%s\"", "hi-via-args", string(out))
 	}
 }
