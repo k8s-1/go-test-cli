@@ -12,7 +12,7 @@ func Test_ExecuteCommand(t *testing.T) {
 
 	cmd.SetOut(b)
 	input := "jayquellin"
-	cmd.SetArgs([]string{"serve", "name", in})
+	cmd.SetArgs([]string{"serve", "name", input})
 	cmd.Execute()
 
 	out, err := io.ReadAll(b)
