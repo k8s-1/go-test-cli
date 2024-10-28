@@ -19,7 +19,7 @@ var serveCmd = &cobra.Command{
 e.g. 
 go-test-cli serve name=example`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("serve called")
+    fmt.Printf("serve called with name = %s\n", serveArgs.name)
 	},
 }
 
