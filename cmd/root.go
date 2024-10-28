@@ -38,7 +38,7 @@ to quickly create a Cobra application.`,
 	// Run: func(cmd *cobra.Command, args []string) { },
 }
 
-func newRootCmd() *cobra.Command {
+func NewRootCmd() *cobra.Command {
   return rootCmd
 }
 
